@@ -74,6 +74,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = "tpl_layout";
         $date = date_create();
         return $this->render('index', compact('date'));
     }
@@ -144,6 +145,16 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    /**
+     * Displays about page.
+     *
+     * @return mixed
+     */
+    public function actionContactvjs()
+    {
+        return $this->render('contact_vjs');
     }
 
     /**
