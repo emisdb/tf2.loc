@@ -152,9 +152,9 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionContactvjs()
+    public function actionTest()
     {
-        return $this->render('contact_vjs');
+        return $this->render('test');
     }
 
     /**

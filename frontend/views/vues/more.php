@@ -20,7 +20,10 @@
 		computed: {
 			getDate: function(){ 
 				var d=new Date; 
-				return this.weekday[d.getDay()] + ' ' + d.getDate() + ' ' + this.month[d.getMonth()] + ' ' + d.getFullYear();
+				return this.weekday[d.getDay()] + ' ' +
+					d.getDate() + ' ' +
+					this.month[d.getMonth()] + ' ' +
+					d.getFullYear();
 			}
 			
 		}
