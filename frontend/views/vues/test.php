@@ -25,10 +25,20 @@ CSS
 		template: '#v-figure',
 		style: 'figure {border: black 2px;}',
 	}) 
+	Vue.component('app-nav', {
+		props: ['items'],
+		template: '#v-nav',
+	}) 
         new Vue({
         el:'#app',
         data:{
-		
+			menu: [
+			{ title:'First',url:'https://www.velodrive.ru/'},	
+			{ title:'Second',url:'https://www.velodrive.ru/'},	
+			{ title:'Third',url:'https://www.velodrive.ru/'},	
+			{ title:'Forth',url:'https://www.velodrive.ru/'},	
+			],
+	
 			places: [
 			{ title:'FORWARD IRIS',url:'https://www.velodrive.ru/upload/resize_cache/iblock/caa/300_300_1/forward_26_iris_1_gold.jpg'},	
 			{ title:'STELS Navigator',url:'https://www.velodrive.ru/upload/iblock/38c/9a1ec878b2d9a8477f6b5c9b5f580bc0.jpeg'},	

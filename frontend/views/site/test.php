@@ -10,7 +10,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
     <div id = "app">
-		<app-nav></app-nav>
+		<app-nav
+		  v-bind:items="menu"
+		></app-nav>
 		<app-view>
 			<app-sidebar>some</app-sidebar>
 			<app-content> 
@@ -40,9 +42,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<script type="text/x-template" id="v-figure">
 		<figure>
-			<p><img :src="item.url" :alt="item.title"></p>
+			<p><img :src="item.url" :alt="item.title" :title="item.title"></p>
 			<figcaption>{{item.title}}</figcaption>
 		</figure>	
+	</script>
+	<script type="text/x-template" id="v-nav">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			   <a class="navbar-brand" href="#">WebSiteName</a>
+			 </div>
+		    <ul class="nav navbar-nav">
+			  <li  v-for="(it, index) in items" :class="{active : index == 1}"><a href="#">{{it.title}}</a></li>
+			</ul>
+			</div>
+		</nav>
 	</script>
 	
 <?php $this->beginContent('@app/views/vues/test.php'); ?>
