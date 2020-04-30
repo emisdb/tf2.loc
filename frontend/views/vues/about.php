@@ -1,5 +1,4 @@
-<h6> VUE.JS PRACTICE</h6>
-<?php   $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position' => \yii\web\View::POS_END]); ?>
+<?php   $this->registerJsFile('https://unpkg.com/vue', ['position' => \yii\web\View::POS_END]); ?>
 <?php  $this->registerJs(<<<JS
         new Vue({
         el:'#app',
