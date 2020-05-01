@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		  v-bind:items="menu"
 		></app-nav>
 		<app-view>
-			<app-sidebar>some</app-sidebar>
+			<app-sidebar></app-sidebar>
 			<app-content> 
 				<h2 v-html="mail"></h2>        
 			</app-content>

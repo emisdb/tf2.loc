@@ -5,14 +5,13 @@ namespace frontend\controllers;
 use Yii;
 use frontend\models\ProductGroup;
 use frontend\models\ProductGroupSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * ProductGroupController implements the CRUD actions for ProductGroup model.
  */
-class ProductGroupController extends Controller
+class ProductGroupController extends AppController
 {
     /**
      * {@inheritdoc}

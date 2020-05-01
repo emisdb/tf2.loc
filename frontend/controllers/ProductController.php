@@ -5,14 +5,13 @@ namespace frontend\controllers;
 use Yii;
 use frontend\models\Product;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * ProductController implements the CRUD actions for Product model.
  */
-class ProductController extends Controller
+class ProductController extends AppController
 {
     /**
      * {@inheritdoc}

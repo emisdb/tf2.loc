@@ -5,14 +5,13 @@ namespace frontend\controllers;
 use Yii;
 use frontend\models\Item;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * ItemController implements the CRUD actions for Item model.
  */
-class ItemController extends Controller
+class ItemController extends AppController
 {
     /**
      * {@inheritdoc}
@@ -28,7 +27,6 @@ class ItemController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all Item models.
      * @return mixed
