@@ -35,7 +35,7 @@ class ProductController extends AppController
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Product::find(),
+            'query' => Product::find()->with(['its','cgrs']),
         ]);
 
         return $this->render('index', [

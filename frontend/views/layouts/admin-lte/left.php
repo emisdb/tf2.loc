@@ -30,19 +30,16 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Работа с номенклатурой', 'options' => ['class' => 'header']],
 				    ['label' => 'Единицы', 'icon' => 'file-code-o','url' => ['/item']],
 				    ['label' => 'Группы','icon' => 'file-code-o', 'url' => ['/product-group']],
 				    ['label' => 'Товары', 'icon' => 'file-code-o','url' => ['/product']],
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Login', 'url' => ['app-site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => 'Some tools',
+                        'label' => 'Tools',
                         'icon' => 'share',
                         'url' => '#',
                         'items' => [
+                            ['label' => 'Vue', 'icon' => ' fa-cogs', 'url' => ['app-site/test'],],
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
                             [

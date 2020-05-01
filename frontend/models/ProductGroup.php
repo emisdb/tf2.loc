@@ -72,7 +72,7 @@ class ProductGroup extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getCgr0()
+    public function getCgrs()
     {
         return $this->hasOne(ProductGroup::className(), ['ckey' => 'cgr']);
     }

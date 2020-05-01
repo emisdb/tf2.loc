@@ -6,7 +6,6 @@ use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -18,7 +17,7 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class AppSiteController extends AppController
 {
     /**
      * {@inheritdoc}
@@ -74,8 +73,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = "tpl_layout";
-        $date = date_create();
+		$date = date_create();
         return $this->render('index', compact('date'));
     }
 
@@ -144,9 +142,19 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        return $this->render('about_tpl');
     }
     
+    /**
+     * Displays about page.
+     *
+     * @return mixed
+     */
+    public function actionTest()
+    {
+        return $this->render('test');
+    }
+
     /**
      * Signs user up.
      *

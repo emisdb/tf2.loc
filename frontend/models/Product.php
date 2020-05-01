@@ -79,7 +79,7 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getCgr0()
+    public function getCgrs()
     {
         return $this->hasOne(ProductGroup::className(), ['ckey' => 'cgr']);
     }
@@ -89,7 +89,7 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getIt0()
+    public function getIts()
     {
         return $this->hasOne(Item::className(), ['id' => 'it']);
     }

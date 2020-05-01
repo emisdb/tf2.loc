@@ -28,7 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'ckey',
             'tnam',
-            'cgr',
+			['value' => function ($data) {
+			return $data->cgrs->tnam;}
+			],
             'lf_key',
             'rg_key',
             //'level',
