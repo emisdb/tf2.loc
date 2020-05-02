@@ -33,7 +33,7 @@ class Item extends \yii\db\ActiveRecord
             [['id'], 'required'],
             [['id'], 'integer'],
             [['name'], 'string', 'max' => 32],
-            [['sh_name'], 'string', 'max' => 8],
+            [['short_name'], 'string', 'max' => 8],
             [['okei'], 'string', 'max' => 3],
             [['id'], 'unique'],
         ];
@@ -46,8 +46,8 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'sh_name' => 'Sh Name',
+            'name' => 'Наименование',
+            'short_name' => 'Сокращение',
             'okei' => 'Okei',
         ];
     }

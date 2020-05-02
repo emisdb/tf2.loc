@@ -88,7 +88,7 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getItem()
+    public function getItems()
     {
         return $this->hasOne(Item::className(), ['id' => 'item']);
     }

@@ -30,11 +30,17 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-				    ['label' => 'Единицы', 'icon' => 'file-code-o','url' => ['/item']],
-				    ['label' => 'Группы','icon' => 'file-code-o', 'url' => ['/product-group']],
-				    ['label' => 'Товары', 'icon' => 'file-code-o','url' => ['/product']],
-                    ['label' => 'Login', 'url' => ['app-site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
+                        'label' => 'Номенклатура',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+							['label' => 'Единицы', 'icon' => 'file-code-o','url' => ['/item']],
+							['label' => 'Группы','icon' => 'file-code-o', 'url' => ['/product-group']],
+							['label' => 'Товары', 'icon' => 'file-code-o','url' => ['/product']],
+						],
+					],
+                     [
                         'label' => 'Tools',
                         'icon' => 'share',
                         'url' => '#',
@@ -61,6 +67,7 @@
                             ],
                         ],
                     ],
+                   ['label' => 'Login', 'url' => ['app-site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]
         ) ?>

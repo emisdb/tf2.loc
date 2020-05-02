@@ -15,15 +15,17 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'ckey') ?>
+    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'tnam') ?>
+    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'cgr') ?>
+    <?= $form->field($model, 'product_group') ?>
 
     <?= $form->field($model, 'lf_key') ?>
 
     <?= $form->field($model, 'rg_key') ?>
+
+    <?= $form->field($model, 'level') ?>
 
     <?php // echo $form->field($model, 'level') ?>
 

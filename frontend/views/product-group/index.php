@@ -26,14 +26,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ckey',
-            'tnam',
+            'id',
+            'name',
 			['value' => function ($data) {
-			return $data->cgrs->tnam;}
+			return $data->productGroup->name;}
 			],
             'lf_key',
             'rg_key',
-            //'level',
+            'level',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
