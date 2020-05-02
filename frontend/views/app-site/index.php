@@ -15,6 +15,9 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
+		<div id = "app">
+			
+		</div>
 
         <div class="row">
 
@@ -80,4 +83,6 @@ $this->title = 'My Yii Application';
               </div>
 
     </div>
+<?php $this->beginContent('@app/views/vues/app-site-index.php'); ?>
+<?php $this->endContent(); ?>
 </div>

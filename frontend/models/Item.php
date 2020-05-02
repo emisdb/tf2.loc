@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string|null $name
- * @property string|null $sh_name
+ * @property string|null $short_name
  * @property string|null $okei
  *
  * @property Product[] $products
@@ -59,6 +59,6 @@ class Item extends \yii\db\ActiveRecord
      */
     public function getProducts()
     {
-        return $this->hasMany(Product::className(), ['it' => 'id']);
+        return $this->hasMany(Product::className(), ['item' => 'id']);
     }
 }

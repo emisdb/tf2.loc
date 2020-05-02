@@ -25,12 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'ckey',
             'tnam',
-			['value' => function ($data) {
-			return $data->cgrs->tnam;}
+			[
+				'attribute' => 'cgr',
+				'value' => function ($data) {
+				return $data->cgrs->tnam;}
 			],
-			['value' => function ($data) {
-			return $data->its->sh_name;}
-			],
+			[
+				'attribute' => 'it',				
+				'value' => function ($data) {
+					return $data->its->sh_name;}
+				],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

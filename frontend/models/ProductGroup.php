@@ -7,17 +7,16 @@ use Yii;
 /**
  * This is the model class for table "product_group".
  *
- * @property int $ckey
- * @property string $tnam
- * @property int|null $cgr
+ * @property int $id
+ * @property string $name
+ * @property int|null $product_group
  * @property int|null $lf_key
  * @property int|null $rg_key
  * @property int|null $level
  *
  * @property Product[] $products
- * @property ProductGroup $cgr0
+ * @property ProductGroup $ProductGroup
  * @property ProductGroup[] $productGroups
- * @property ProductgroupId[] $productgroups
  */
 class ProductGroup extends \yii\db\ActiveRecord
 {
@@ -35,10 +34,10 @@ class ProductGroup extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tnam'], 'required'],
-            [['cgr', 'lf_key', 'rg_key', 'level'], 'integer'],
-            [['tnam'], 'string', 'max' => 32],
-            [['cgr'], 'exist', 'skipOnError' => true, 'targetClass' => ProductGroup::className(), 'targetAttribute' => ['cgr' => 'ckey']],
+            [['name'], 'required'],
+            [['product_group', 'lf_key', 'rg_key', 'level'], 'integer'],
+            [['name'], 'string', 'max' => 32],
+            [['product_group'], 'exist', 'skipOnError' => true, 'targetClass' => ProductGroup::className(), 'targetAttribute' => ['product_group' => 'id']],
         ];
     }
 
@@ -48,12 +47,12 @@ class ProductGroup extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ckey' => 'Ckey',
-            'tnam' => 'Tnam',
-            'cgr' => 'Cgr',
+            'id' => 'ID',
+            'name' => 'Название',
+            'product_group' => 'Группа',
             'lf_key' => 'Lf Key',
             'rg_key' => 'Rg Key',
-            'level' => 'Level',
+            'level' => 'Уровень',
         ];
     }
 
@@ -64,7 +63,7 @@ class ProductGroup extends \yii\db\ActiveRecord
      */
     public function getProducts()
     {
-        return $this->hasMany(Product::className(), ['cgr' => 'ckey']);
+        return $this->hasMany(Product::className(), ['product_group' => 'id']);
     }
 
     /**
@@ -72,9 +71,9 @@ class ProductGroup extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getCgrs()
+    public function getProductGroup()
     {
-        return $this->hasOne(ProductGroup::className(), ['ckey' => 'cgr']);
+       return $this->hasOne(ProductGroup::className(), ['id' => 'product_group']);
     }
 
     /**
@@ -84,7 +83,7 @@ class ProductGroup extends \yii\db\ActiveRecord
      */
     public function getProductGroups()
     {
-        return $this->hasMany(ProductGroup::className(), ['cgr' => 'ckey']);
+        return $this->hasMany(ProductGroup::className(), ['product_group' => 'id']);
     }
 
  }

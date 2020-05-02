@@ -66,7 +66,7 @@ class ProductGroupController extends AppController
         $model = new ProductGroup();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ckey]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -86,7 +86,7 @@ class ProductGroupController extends AppController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ckey]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
