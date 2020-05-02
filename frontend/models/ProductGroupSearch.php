@@ -17,8 +17,8 @@ class ProductGroupSearch extends ProductGroup
     public function rules()
     {
         return [
-            [['ckey', 'cgr', 'lf_key', 'rg_key', 'level'], 'integer'],
-            [['tnam'], 'safe'],
+            [['id', 'product_group', 'lf_key', 'rg_key', 'level'], 'integer'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -58,14 +58,14 @@ class ProductGroupSearch extends ProductGroup
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'ckey' => $this->ckey,
-            'cgr' => $this->cgr,
+            'id' => $this->id,
+            'product_group' => $this->product_group,
             'lf_key' => $this->lf_key,
             'rg_key' => $this->rg_key,
             'level' => $this->level,
         ]);
 
-        $query->andFilterWhere(['like', 'tnam', $this->tnam]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

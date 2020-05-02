@@ -7,16 +7,15 @@ use Yii;
 /**
  * This is the model class for table "product".
  *
- * @property int $ckey
- * @property string|null $tnam
- * @property int|null $cgr
- * @property int|null $it
+ * @property int $id
+ * @property string|null $name
+ * @property int|null $product_group
+ * @property int|null $item
  *
  * @property ExpD[] $expDs
  * @property InvD[] $invDs
- * @property ProductGroup $cgr0
- * @property Item $it0
- * @property ProductId[] $products
+ * @property ProductGroup $ProductGroup
+ * @property Item $Item
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -34,10 +33,10 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cgr', 'it'], 'integer'],
-            [['tnam'], 'string', 'max' => 102],
-            [['cgr'], 'exist', 'skipOnError' => true, 'targetClass' => ProductGroup::className(), 'targetAttribute' => ['cgr' => 'ckey']],
-            [['it'], 'exist', 'skipOnError' => true, 'targetClass' => Item::className(), 'targetAttribute' => ['it' => 'id']],
+            [['product_group', 'item'], 'integer'],
+            [['name'], 'string', 'max' => 102],
+            [['product_group'], 'exist', 'skipOnError' => true, 'targetClass' => ProductGroup::className(), 'targetAttribute' => ['product_group' => 'id']],
+            [['item'], 'exist', 'skipOnError' => true, 'targetClass' => Item::className(), 'targetAttribute' => ['item' => 'id']],
         ];
     }
 
@@ -47,10 +46,10 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ckey' => 'Ckey',
-            'tnam' => 'Tnam',
-            'cgr' => 'Cgr',
-            'it' => 'It',
+            'id' => 'ID',
+            'name' => 'Название',
+            'product_group' => 'Группа',
+            'item' => 'Ед.',
         ];
     }
 
@@ -61,7 +60,7 @@ class Product extends \yii\db\ActiveRecord
      */
     public function getExpDs()
     {
-        return $this->hasMany(ExpD::className(), ['product' => 'ckey']);
+        return $this->hasMany(ExpD::className(), ['product' => 'id']);
     }
 
     /**
@@ -71,7 +70,7 @@ class Product extends \yii\db\ActiveRecord
      */
     public function getInvDs()
     {
-        return $this->hasMany(InvD::className(), ['product' => 'ckey']);
+        return $this->hasMany(InvD::className(), ['product' => 'id']);
     }
 
     /**
@@ -79,9 +78,9 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getCgrs()
+    public function getProductGroup()
     {
-        return $this->hasOne(ProductGroup::className(), ['ckey' => 'cgr']);
+        return $this->hasOne(ProductGroup::className(), ['id' => 'product_group']);
     }
 
     /**
@@ -89,18 +88,9 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getIts()
+    public function getItems()
     {
-        return $this->hasOne(Item::className(), ['id' => 'it']);
+        return $this->hasOne(Item::className(), ['id' => 'item']);
     }
 
-    /**
-     * Gets query for [[Products]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProducts()
-    {
-        return $this->hasMany(ProductId::className(), ['id' => 'ckey']);
-    }
-}
+ }

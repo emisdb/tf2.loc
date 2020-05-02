@@ -35,7 +35,7 @@ class ProductController extends AppController
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Product::find()->with(['its','cgrs']),
+            'query' => Product::find()->with(['items','productGroup']),
         ]);
 
         return $this->render('index', [
@@ -66,7 +66,7 @@ class ProductController extends AppController
         $model = new Product();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ckey]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -86,7 +86,7 @@ class ProductController extends AppController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ckey]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [

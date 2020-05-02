@@ -23,14 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ckey',
-            'tnam',
-			['value' => function ($data) {
-			return $data->cgrs->tnam;}
+            'id',
+            'name',
+			[
+				'attribute' => 'product_group',
+				'value' => function ($data) {
+				return $data->productGroup->name;}
 			],
-			['value' => function ($data) {
-			return $data->its->sh_name;}
-			],
+			[
+				'attribute' => 'item',				
+				'value' => function ($data) {
+					return $data->items->short_name;}
+				],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\ProductGroup */
 
-$this->title = 'Update Product Group: ' . $model->ckey;
+$this->title = 'Update Product Group: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Product Groups', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->ckey, 'url' => ['view', 'id' => $model->ckey]];
+$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="product-group-update">
