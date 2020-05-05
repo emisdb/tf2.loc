@@ -18,13 +18,11 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 		<div id = "app">
-		<div class="dropdown">
-			<ul>
+			<ul class='list-unstyled'>
 				<li v-for="product in products"  >
 					<a href="#" v-bind:value="product.id" v-bind:style="{'margin-left': margin * product.level + 'px'}">{{product.name}}</a>	
 				</li>
 			</ul>
- 		</div>		
 		</div>
 		<hr>
 		<div class="dropdown">
@@ -32,7 +30,7 @@ $this->title = 'My Yii Application';
                 Товары в группах <span class="caret"></span>
             </a>
 			<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-				<?php $level=0; ?>
+				<?php $level=0; $items=[]; $in_items=&$items ?>
 				<?php foreach ($pgtree as $product): ?>
 					<?php if ($product['level'] < $level): ?>
 						<?php for ($i = $product['level']; $i < $level; $i++): ?>
@@ -40,12 +38,18 @@ $this->title = 'My Yii Application';
 							  </li>
 						<?php endfor ?>
 					<?php endif ?>				
-					<?php $level=$product['level'];?>
+					<?php 
+						$level=$product['level'];
+						$items[] = ['label' => $product['name'], 'url' => '#'];
+					?>
 					<?php if ($product['parent'] == 0): ?>
 						<li>
 							<?= Html::a($product['name'], '#',['value'=>$product['id']]) ?>
 						</li>
 					<?php else: ?>
+						<?php 
+							$items['items']=[];
+							$items = &$items['items'];?>
 						<li class="dropdown-submenu">
 							<?= Html::a($product['name'], '#',['value'=>$product['id'], 'tabindex'=>"-1"]) ?>
 								<ul class="dropdown-menu">
@@ -57,6 +61,18 @@ $this->title = 'My Yii Application';
 				<?php endfor ?>
 			</ul>
  		</div>
+		<hr>
+		  <?php
+		  echo "<pre>";
+				var_dump($in_items);
+		  echo "</pre>";
+//				echo dmstr\widgets\Menu::widget(
+//		  [
+//                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
+//                'items' => [$in_items],
+//			  ]);
+						?>
+
 		<hr>
 
   <div class="dropdown">

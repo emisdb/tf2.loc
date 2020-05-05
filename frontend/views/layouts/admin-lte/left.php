@@ -42,10 +42,10 @@
 					],
                      [
                         'label' => 'Tools',
-                        'icon' => 'share',
+                        'icon' => 'bicycle',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Vue', 'icon' => ' fa-cogs', 'url' => ['app-site/test'],],
+                            ['label' => 'Vue', 'icon' => 'cogs', 'url' => ['app-site/test'],],
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
                             [
