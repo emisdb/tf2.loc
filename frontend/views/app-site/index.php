@@ -17,8 +17,8 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 		<div id = "app">
 			<ul>
-				<li v-for="product in products">
-					<div v-bind:style = "{'margin-left': margin * product.level +'px'}">{{product.name}}<div>
+				<li v-for="product in products"  >
+					<div :data-value="product.id" v-bind:style = "{'margin-left': margin * product.level +'px'}">{{product.name}}</div>	
 				</li>
 			</ul>	
 		</div>
