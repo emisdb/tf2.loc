@@ -16,7 +16,11 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 		<div id = "app">
-			
+			<ul>
+				<li v-for="product in products">
+					<div v-bind:style = "{'margin-left': margin * product.level +'px'}">{{product.name}}<div>
+				</li>
+			</ul>	
 		</div>
 
         <div class="row">
@@ -80,8 +84,7 @@ $this->title = 'My Yii Application';
           </div>
           <!-- /.box -->
         </div>
-              </div>
-
+        </div>
     </div>
 <?php $this->beginContent('@app/views/vues/app-site-index.php'); ?>
 <?php $this->endContent(); ?>

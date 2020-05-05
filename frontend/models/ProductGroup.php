@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use yii\helpers\Json;
 use Yii;
 
 /**
@@ -85,5 +86,7 @@ class ProductGroup extends \yii\db\ActiveRecord
     {
         return $this->hasMany(ProductGroup::className(), ['product_group' => 'id']);
     }
-
+	public function getJSON(){
+		return Json::htmlEncode($this::find()->select(['id','name','product_group','level'])->orderBy(['lf_key'=>SORT_ASC])->asArray()->all());
+	}
  }
