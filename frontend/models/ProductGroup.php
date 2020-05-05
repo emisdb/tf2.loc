@@ -87,6 +87,9 @@ class ProductGroup extends \yii\db\ActiveRecord
         return $this->hasMany(ProductGroup::className(), ['product_group' => 'id']);
     }
 	public function getJSON(){
-		return Json::htmlEncode($this::find()->select(['id','name','product_group','level'])->orderBy(['lf_key'=>SORT_ASC])->asArray()->all());
+		return Json::htmlEncode($this::find()->select(['id','name','product_group','level', '[[lf_key]]+1 <> [[rg_key]] AS parent '])->orderBy(['lf_key'=>SORT_ASC])->asArray()->all());
+	}
+	public function getTree(){
+		return $this::find()->select(['id','name','product_group','level', '[[lf_key]]+1 <> [[rg_key]] AS parent '])->orderBy(['lf_key'=>SORT_ASC])->asArray()->all();
 	}
  }

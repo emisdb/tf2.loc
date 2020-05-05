@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" style="height:150px;">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>

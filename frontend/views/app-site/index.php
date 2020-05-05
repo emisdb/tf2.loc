@@ -1,8 +1,10 @@
 <?php
-
+use yii\helpers\Html;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
+	$pg=new frontend\models\ProductGroup;	$pgtree=$pg->getTree(); 
+
 ?>
 <div class="site-index">
 
@@ -16,13 +18,72 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 		<div id = "app">
+		<div class="dropdown">
 			<ul>
 				<li v-for="product in products"  >
-					<div :data-value="product.id" v-bind:style = "{'margin-left': margin * product.level +'px'}">{{product.name}}</div>	
+					<a href="#" v-bind:value="product.id" v-bind:style="{'margin-left': margin * product.level + 'px'}">{{product.name}}</a>	
 				</li>
-			</ul>	
+			</ul>
+ 		</div>		
 		</div>
+		<hr>
+		<div class="dropdown">
+			 <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
+                Товары в группах <span class="caret"></span>
+            </a>
+			<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+				<?php $level=0; ?>
+				<?php foreach ($pgtree as $product): ?>
+					<?php if ($product['level'] < $level): ?>
+						<?php for ($i = $product['level']; $i < $level; $i++): ?>
+								</ul>
+							  </li>
+						<?php endfor ?>
+					<?php endif ?>				
+					<?php $level=$product['level'];?>
+					<?php if ($product['parent'] == 0): ?>
+						<li>
+							<?= Html::a($product['name'], '#',['value'=>$product['id']]) ?>
+						</li>
+					<?php else: ?>
+						<li class="dropdown-submenu">
+							<?= Html::a($product['name'], '#',['value'=>$product['id'], 'tabindex'=>"-1"]) ?>
+								<ul class="dropdown-menu">
+					<?php endif ?>
+				<?php endforeach ?>
+				<?php for ($i = 0; $i < $level; $i++): ?>
+						</ul>
+					  </li>
+				<?php endfor ?>
+			</ul>
+ 		</div>
+		<hr>
 
+  <div class="dropdown">
+      <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
+                Dropdown <span class="caret"></span>
+            </a>
+	  <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+        <li><a href="#">Some action</a></li>
+        <li class="divider"></li>
+       <li><a href="#">Some other action</a></li>
+         <li class="dropdown-submenu">
+          <a tabindex="-1" href="#">Hover me for more options</a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" href="#">Second level</a></li>
+            <li class="dropdown-submenu">
+              <a href="#">Even More..</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">3rd level</a></li>
+                <li><a href="#">3rd level</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Second level</a></li>
+            <li><a href="#">Second level</a></li>
+          </ul>
+        </li>
+      </ul>
+ 		</div>
         <div class="row">
 
         <div class="col-xs-12">
