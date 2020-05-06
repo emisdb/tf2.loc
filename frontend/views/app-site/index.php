@@ -25,6 +25,8 @@ $this->title = 'My Yii Application';
 			</ul>
 		</div>
 		<hr>
+		<div class="row">
+			<div class="col-md-6">
 		<div class="dropdown">
 			 <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
                 Товары в группах <span class="caret"></span>
@@ -67,19 +69,18 @@ $this->title = 'My Yii Application';
 				<?php endfor ?>
 			</ul>
  		</div>
-		<hr>
-		  <?php
-//		  echo "<pre>";
-//				var_dump($in_items);
-//				echo '<hr>';
-//				var_dump($par_item);
-//		  echo "</pre>";
-				echo dmstr\widgets\Menu::widget(
+			</div>
+			<div class="col-md-6">
+		  <?=
+
+				 dmstr\widgets\Menu::widget(
 		  [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => $in_items,
 			  ]);
 						?>
+			</div>
+		</div>
 
 		<hr>
 
