@@ -30,9 +30,10 @@ $this->title = 'My Yii Application';
                 Товары в группах <span class="caret"></span>
             </a>
 			<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-				<?php $level=0; $items=[]; $in_items=&$items ?>
+				<?php $level=0; $item=[]; $par_item=[]; $in_items=&$item; $counter=0; ?>
 				<?php foreach ($pgtree as $product): ?>
 					<?php if ($product['level'] < $level): ?>
+						<?php $item = &$par_item[$product['level']]; ?>
 						<?php for ($i = $product['level']; $i < $level; $i++): ?>
 								</ul>
 							  </li>
@@ -40,16 +41,21 @@ $this->title = 'My Yii Application';
 					<?php endif ?>				
 					<?php 
 						$level=$product['level'];
-						$items[] = ['label' => $product['name'], 'url' => '#'];
 					?>
 					<?php if ($product['parent'] == 0): ?>
 						<li>
 							<?= Html::a($product['name'], '#',['value'=>$product['id']]) ?>
+							<?php
+							$item[] = ['label' => $product['name'], 'url' => '#', 'lvl' => $product['level']];							
+							?>
 						</li>
 					<?php else: ?>
 						<?php 
-							$items['items']=[];
-							$items = &$items['items'];?>
+								$curitem = &$item[];
+								$curitem = ['label' => $product['name'], 'url' => '#','lvl' => $product['level'],'items'=>[]];
+								$par_item[$product['level']] =&$item;
+								$item = &$curitem['items'];
+							?>
 						<li class="dropdown-submenu">
 							<?= Html::a($product['name'], '#',['value'=>$product['id'], 'tabindex'=>"-1"]) ?>
 								<ul class="dropdown-menu">
@@ -63,14 +69,16 @@ $this->title = 'My Yii Application';
  		</div>
 		<hr>
 		  <?php
-		  echo "<pre>";
-				var_dump($in_items);
-		  echo "</pre>";
-//				echo dmstr\widgets\Menu::widget(
-//		  [
-//                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-//                'items' => [$in_items],
-//			  ]);
+//		  echo "<pre>";
+//				var_dump($in_items);
+//				echo '<hr>';
+//				var_dump($par_item);
+//		  echo "</pre>";
+				echo dmstr\widgets\Menu::widget(
+		  [
+                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
+                'items' => $in_items,
+			  ]);
 						?>
 
 		<hr>
