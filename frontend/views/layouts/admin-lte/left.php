@@ -36,8 +36,18 @@
                         'url' => '#',
                         'items' => [
 							['label' => 'Единицы', 'icon' => 'file-code-o','url' => ['/item']],
-							['label' => 'Группы','icon' => 'file-code-o', 'url' => ['/product-group']],
+							['label' => 'Группы','icon' => 'sitemap', 'url' => ['/product-group']],
 							['label' => 'Товары', 'icon' => 'file-code-o','url' => ['/product']],
+						],
+					],
+                    [
+                        'label' => 'Информация',
+                        'icon' => 'info',
+                        'url' => '#',
+                        'items' => [
+							['label' => 'Главная', 'icon' => 'cog','url' => ['/app-site']],
+							['label' => 'Тесты', 'icon' => 'bolt','url' => ['app-site/test']],
+							['label' => 'СПб данные', 'icon' => 'institution','url' => ['app-site/api']],
 						],
 					],
                      [
@@ -48,24 +58,7 @@
                             ['label' => 'Vue', 'icon' => 'cogs', 'url' => ['app-site/test'],],
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
+                         ],
                     ],
                    ['label' => 'Login', 'url' => ['app-site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],

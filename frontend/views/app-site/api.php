@@ -16,14 +16,14 @@ $this->registerCSS(<<<CSS
     background: #CFD6D3; /* Цвет фона */
 	text-align: right;
    }
-
+div.site-index h2 span{
+		margin: 0px 10px;
+	}
 CSS
 ); 
 ?>
-<section class="content">
-
 <div class="site-index">
-        <h2 class="headline text-info"><i class="fa fa-warning text-yellow"></i>Данные санкт-петербургского правительства</h2>
+	<h2 class="headline text-info"><i class="fa fa-warning text-yellow"></i><span>Данные санкт-петербургского правительства</span></h2>
 
      <div>
 		 <table border="1" class="result-data">
@@ -46,5 +46,3 @@ CSS
 
      </div>
 </div>
-
-</section>
