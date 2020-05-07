@@ -13,6 +13,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\httpclient\Client;
 
 /**
  * Site controller
@@ -75,6 +76,26 @@ class AppSiteController extends AppController
     {
 		$date = date_create();
         return $this->render('index', compact('date'));
+    }
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionApi()
+    {
+		
+
+ 	$client = new Client();
+		$response = $client->createRequest()
+			->setMethod('GET')
+			->setUrl('http://data.gov.spb.ru/api/v1/datasets/')
+			->addHeaders(['Authorization'=>'Token 3324b73cef0fd5446be3556ec298e707eccfe995'])
+			->send();
+		if ($response->isOk) {
+			$data = $response->getData();
+		}
+       return $this->render('api', compact('data'));
     }
 
     /**
