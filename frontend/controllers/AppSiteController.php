@@ -87,11 +87,11 @@ class AppSiteController extends AppController
 		
 
  	$client = new Client();
-		$response = $client->createRequest()
+		$request = $client->createRequest()
 			->setMethod('GET')
-			->setUrl('http://data.gov.spb.ru/api/v1/datasets/')
-			->addHeaders(['Authorization'=>'Token 3324b73cef0fd5446be3556ec298e707eccfe995'])
-			->send();
+			->setUrl(Yii::$app->params['spb-web'])
+			->addHeaders(['Authorization'=>'Token '.Yii::$app->params['spb-token']]);
+		$response = $request->send();
 		if ($response->isOk) {
 			$data = $response->getData();
 		}
