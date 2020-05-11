@@ -17,6 +17,11 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
+		<div class="row">
+			<div class="col-md-6">
+				<?=Html::a("AJAX - From - Yii 2","http://streletzcoder.ru/rabotaem-s-ajax-v-yii-2/") ?>
+		  </div>
+    </div>
 		<div id = "app">
 			<ul class='list-unstyled'>
 				<li v-for="product in products"  >
