@@ -33,7 +33,7 @@ body  data-spy="scroll" data-target="#comNavbar">
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Url::to('/app-site'),
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+        'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
